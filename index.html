@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Walentynki</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            width: 100dvw;
+            height: 100dvh;
+            display: flex;
+            justify-content: center;
+            background-color: rgb(249, 205, 214);
+            color: white;
+        }
+
+        .header {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        h1 {
+            font-weight: 100;
+            text-shadow: 0px 0px 4px rgba(0, 0, 0, 1);
+        }
+
+        img {
+            width: 20rem;
+        }
+
+        button {
+            border: none;
+            background-color: transparent;
+            padding: 1em;
+            border-radius: .5em;
+            font-size: 1em;
+            color: white;
+            cursor: pointer;
+        }
+
+        .yes {
+            background-color: green;
+        }
+
+        .yes:hover {
+            background-color: rgb(0, 80, 0);
+        }
+
+        .no {
+            background-color: red;
+        }
+
+        .no:hover {
+            background-color: rgb(155, 0, 0);
+        }
+    </style>
+</head>
+<body>
+        <div class="header">
+            <img src="/bear-love.gif">
+            <br>
+            <h1>Czy zostaniesz moją walentynką?</h1>
+            <br>
+            <div class="buttons">
+                <button class="yes">Tak</button>
+                <button class="no">Nie</button>
+            </div>
+            <script>
+                document.addEventListener("DOMContentLoaded", () => {
+                const messages = [
+                    "Jesteś pewna?",
+                    "Na pewno? :(",
+                    "Serio?...",
+                    "Przemyśl to jeszcze raz!!",
+                    "Ostatnia szansa..",
+                    "Możesz tego żałować...",
+                    "Zastanów się jeszcze raz!!",
+                    "Jesteś absolutnie pewna?",
+                    "To może być błąd!",
+                    "Miej serce!",
+                    "Nie chciałabyś zmienić zdania?",
+                    "Czy to twoja ostateczna odpowiedź?",
+                    "Łamiesz mi serce...",
+                ];
+
+                const yesButton = document.querySelector(".yes");
+                const noButton = document.querySelector(".no");
+                const image = document.querySelector("img");
+                const heading = document.querySelector("h1");
+
+                let noClickCount = 0;
+
+                yesButton.addEventListener("click", () => {
+                    yesButton.remove();
+                    noButton?.remove();
+
+                    if (heading) {
+                    heading.textContent = "Oki, super! <3";
+                    }
+
+                    if (image) {
+                    image.src = "bear-kiss-bear-kisses.gif"; 
+                    image.alt = "bear kiss bear";
+                    }
+                });
+
+                noButton?.addEventListener("click", () => {
+                    noClickCount++;
+
+                    const currentSize = parseFloat(window.getComputedStyle(yesButton).fontSize);
+                    yesButton.style.fontSize = currentSize + 10 + "px";
+
+                    if (noClickCount <= messages.length) {
+                    noButton.textContent = messages[noClickCount - 1];
+                    } else {
+                    noButton.remove();
+                    }
+                });
+                });
+
+            </script>
+        </div>
+</body>
+</html>
