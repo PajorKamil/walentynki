@@ -78,15 +78,14 @@
                     "Jesteś pewna?",
                     "Na pewno? :(",
                     "Serio?...",
-                    "Przemyśl to jeszcze raz!!",
+                    "Przemyśl to..",
                     "Ostatnia szansa..",
                     "Możesz tego żałować...",
-                    "Zastanów się jeszcze raz!!",
-                    "Jesteś absolutnie pewna?",
+                    "Zastanów się!!",
                     "To może być błąd!",
                     "Miej serce!",
-                    "Nie chciałabyś zmienić zdania?",
-                    "Czy to twoja ostateczna odpowiedź?",
+                    "Nie zmienisz zdania?",
+                    "To ostateczna odpowiedź?",
                     "Łamiesz mi serce...",
                 ];
 
@@ -115,7 +114,7 @@
                     noClickCount++;
 
                     const currentSize = parseFloat(window.getComputedStyle(yesButton).fontSize);
-                    yesButton.style.fontSize = currentSize + 10 + "px";
+                    yesButton.style.fontSize = currentSize + 2 + "px";
 
                     if (noClickCount <= messages.length) {
                     noButton.textContent = messages[noClickCount - 1];
